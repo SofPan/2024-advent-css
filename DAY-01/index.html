@@ -5,10 +5,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DAY 01 - CSS ADVENT 2024</title>
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
-
+  <main>
+    <section class="flex between wrap">
+      <div>
+        <h2>5+ Up</h2>
+        <article id="5_MORE_UP" class="photo-gallery flex between">
+          <div class="row-1 row">
+            <img src="/PHOTOS/josh-harrison-jY_fTS7ZE98-unsplash.jpg"
+              alt="a street lamp decorated with a festive red bow">
+            <img src="/PHOTOS/annie-spratt-zh7GEuORbUw-unsplash.jpg" alt="pine branches overlapping each other">
+          </div>
+          <div class="row-2 row flex show-3">
+            <img class="grow-2" src="/PHOTOS/toa-heftiba-WsDF95mSUsI-unsplash.jpg"
+              alt="a warm holiday beverage on a table surrounded by apples and pinecones">
+            <img class="grow-2" src="/PHOTOS/monika-grabkowska-yuAEcsAe4lk-unsplash.jpg" alt="a plate of sugar cookies">
+            <img src="/PHOTOS/erwan-hesry-e9jV1ZyrOmg-unsplash.jpg" alt="a holiday wreath hanging on a door">
+            <img src="/PHOTOS/brooke-lark-F_IST8bKxhI-unsplash.jpg" alt="a festive charcuterie board">
+          </div>
+        </article>
+      </div>
+      <div>
+        <h2>5 Up</h2>
+        <article id="5UP" class="photo-gallery flex between">
+          <div class="row-1 row">
+            <img src="/PHOTOS/josh-harrison-jY_fTS7ZE98-unsplash.jpg"
+              alt="a street lamp decorated with a festive red bow">
+            <img src="/PHOTOS/annie-spratt-zh7GEuORbUw-unsplash.jpg" alt="pine branches overlapping each other">
+          </div>
+          <div class="row-2 row flex show-3">
+            <img class="grow-2" src="/PHOTOS/brooke-lark-F_IST8bKxhI-unsplash.jpg" alt="a festive charcuterie board">
+            <img class="grow-2" src="/PHOTOS/monika-grabkowska-yuAEcsAe4lk-unsplash.jpg" alt="a plate of sugar cookies">
+            <img src="/PHOTOS/erwan-hesry-e9jV1ZyrOmg-unsplash.jpg" alt="a holiday wreath hanging on a door">
+            <img class="hidden" src="/PHOTOS/toa-heftiba-WsDF95mSUsI-unsplash.jpg"
+              alt="a warm holiday beverage on a table surrounded by apples and pinecones">
+          </div>
+        </article>
+      </div>
+      <div>
+        <h2>4 Up</h2>
+        <article id="4UP" class="photo-gallery flex between">
+          <div class="row-1 row">
+            <img src="/PHOTOS/josh-harrison-jY_fTS7ZE98-unsplash.jpg"
+              alt="a street lamp decorated with a festive red bow">
+            <img src="/PHOTOS/annie-spratt-zh7GEuORbUw-unsplash.jpg" alt="pine branches overlapping each other">
+          </div>
+          <div class="row-2 row flex">
+            <img src="/PHOTOS/toa-heftiba-WsDF95mSUsI-unsplash.jpg"
+              alt="a warm holiday beverage on a table surrounded by apples and pinecones">
+            <img src="/PHOTOS/monika-grabkowska-yuAEcsAe4lk-unsplash.jpg" alt="a plate of sugar cookies">
+          </div>
+        </article>
+      </div>
+      <div>
+        <h2>3 Up</h2>
+        <article id="3UP" class="photo-gallery flex between">
+          <div class="row-1 row">
+            <img src="/PHOTOS/josh-harrison-jY_fTS7ZE98-unsplash.jpg"
+              alt="a street lamp decorated with a festive red bow">
+            <img src="/PHOTOS/annie-spratt-zh7GEuORbUw-unsplash.jpg" alt="pine branches overlapping each other">
+          </div>
+          <div class="row-2 row flex show-1">
+            <img src="/PHOTOS/toa-heftiba-WsDF95mSUsI-unsplash.jpg"
+              alt="a warm holiday beverage on a table surrounded by apples and pinecones">
+            <!-- <img src="/PHOTOS/monika-grabkowska-yuAEcsAe4lk-unsplash.jpg" alt="a plate of sugar cookies"> -->
+          </div>
+        </article>
+      </div>
+      <div>
+        <h2>2 Up</h2>
+        <article id="2UP" class="photo-gallery flex between">
+          <div class="row-1 row single">
+            <img src="/PHOTOS/josh-harrison-jY_fTS7ZE98-unsplash.jpg"
+              alt="a street lamp decorated with a festive red bow">
+            <img src="/PHOTOS/annie-spratt-zh7GEuORbUw-unsplash.jpg" alt="pine branches overlapping each other">
+          </div>
+        </article>
+      </div>
+      <div>
+        <h2>1 Up</h2>
+        <article id="1UP" class="photo-gallery flex between">
+          <div class="row-1 row single show-1">
+            <img src="/PHOTOS/josh-harrison-jY_fTS7ZE98-unsplash.jpg"
+              alt="a street lamp decorated with a festive red bow">
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    const photoGallery = $('#5_MORE_UP');
+    const galleryChildren = photoGallery.find('.row-2').children();
+    if (galleryChildren.length > 3) {
+      const extraImages = galleryChildren.length - 3;
+      galleryChildren.each((ind, el) => {
+        ind >= 3 && $(el).hide();
+      });
+      $('#5_MORE_UP .row-2:last-child').append('<span id="extras"></span>')
+      $('#extras').text(`+${extraImages}`);
+    }
+  </script>
 </body>
 
 </html>
